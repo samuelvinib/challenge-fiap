@@ -51,7 +51,7 @@ Implementar um sistema de autoatendimento de fast food que permita:
 
 ## Instalação do Projeto
 
-> **Pré-requisitos**: Ter o Docker instalados na máquina.
+> **Pré-requisitos**: Ter o Docker instalado na máquina.
 
 ### Passo 1 - Clonar o Repositório
 
