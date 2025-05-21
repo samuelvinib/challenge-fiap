@@ -86,7 +86,7 @@ A API estará disponível em:
 Após iniciar a aplicação, a documentação da API pode ser acessada pelo Swagger em:
 
 ```bash
-  http://localhost:8080/swagger-ui/index.html
+  http://localhost:8080/api/swagger-ui/index.html
 ```
 
 ---
