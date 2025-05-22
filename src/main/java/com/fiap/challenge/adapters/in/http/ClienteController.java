@@ -1,7 +1,7 @@
 package com.fiap.challenge.adapters.in.http;
 
-import com.fiap.challenge.domain.cliente.port.ClientRepository;
 import com.fiap.challenge.domain.entities.cliente.Cliente;
+import com.fiap.challenge.domain.cliente.port.ClientRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Client Controller", description = "Operations related to clients")
+@Tag(name = "Cliente Controller", description = "Operations related to clients")
 @RestController
 @RequestMapping("/clientes")
-public class ClientController {
+public class ClienteController {
 
     private final ClientRepository clientRepository;
 
-    public ClientController(ClientRepository clientRepository) {
+    public ClienteController(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 

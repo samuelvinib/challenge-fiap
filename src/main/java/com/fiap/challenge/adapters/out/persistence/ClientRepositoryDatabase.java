@@ -10,15 +10,15 @@ import java.util.Optional;
 @Repository
 public class ClientRepositoryDatabase implements ClientRepository {
 
-    private final SpringDataClientJpaRepository jpaRepository;
+    private final SpringDataClienteJpaRepository jpaRepository;
 
-    public ClientRepositoryDatabase(SpringDataClientJpaRepository jpaRepository) {
+    public ClientRepositoryDatabase(SpringDataClienteJpaRepository jpaRepository) {
         this.jpaRepository = jpaRepository;
     }
 
     @Override
     public Cliente save(Cliente cliente) {
-        return jpaRepository.save(cliente); // pode envolver conversão de entidade
+        return jpaRepository.save(cliente);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ClientRepositoryDatabase implements ClientRepository {
     }
 
     @Override
-    public void delete(Cliente cliente) {
-        jpaRepository.delete(cliente);
+    public void deleteById(Long id) {
+        jpaRepository.deleteById(id);
     }
 }
