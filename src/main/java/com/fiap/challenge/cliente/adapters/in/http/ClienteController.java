@@ -1,7 +1,7 @@
-package com.fiap.challenge.adapters.in.http;
+package com.fiap.challenge.cliente.adapters.in.http;
 
-import com.fiap.challenge.domain.entities.cliente.Cliente;
-import com.fiap.challenge.domain.cliente.port.ClientRepository;
+import com.fiap.challenge.cliente.domain.entities.Cliente;
+import com.fiap.challenge.cliente.domain.port.ClienteRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -15,22 +15,22 @@ import java.util.List;
 @RequestMapping("/clientes")
 public class ClienteController {
 
-    private final ClientRepository clientRepository;
+    private final ClienteRepository clienteRepository;
 
-    public ClienteController(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
+    public ClienteController(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
     }
 
     @Operation(summary = "Get all clients", description = "Returns a list of all clients")
     @GetMapping
     public List<Cliente> getAll() {
-        return clientRepository.findAll();
+        return clienteRepository.findAll();
     }
 
     @Operation(summary = "Save a client")
     @PostMapping
     public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
-        Cliente savedCliente = clientRepository.save(cliente);
+        Cliente savedCliente = clienteRepository.save(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCliente);
     }
 }
