@@ -1,5 +1,6 @@
 package com.fiap.challenge.cliente.adapters.in.http;
 
+import com.fiap.challenge.cliente.adapters.in.http.dto.ClienteDTO;
 import com.fiap.challenge.cliente.domain.entities.Cliente;
 import com.fiap.challenge.cliente.domain.port.ClienteRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,10 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Tag(name = "Cliente Controller", description = "Operations related to clients")
 @RestController
 @RequestMapping("/clientes")
+@Tag(name = "Cliente Controller", description = "Operações relacionadas a clientes")
 public class ClienteController {
 
     private final ClienteRepository clienteRepository;
@@ -21,16 +23,29 @@ public class ClienteController {
         this.clienteRepository = clienteRepository;
     }
 
-    @Operation(summary = "Get all clients", description = "Returns a list of all clients")
-    @GetMapping
-    public List<Cliente> getAll() {
-        return clienteRepository.findAll();
+    @Operation(summary = "Cadastrar cliente")
+    @PostMapping
+    public ResponseEntity<ClienteDTO> cadastrar(@RequestBody ClienteDTO dto) {
+        Cliente cliente = new Cliente(dto.getCpf(), dto.getNome(), dto.getEmail());
+        Cliente salvo = clienteRepository.save(cliente);
+        return ResponseEntity.status(HttpStatus.CREATED).body(toDTO(salvo));
     }
 
-    @Operation(summary = "Save a client")
-    @PostMapping
-    public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
-        Cliente savedCliente = clienteRepository.save(cliente);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedCliente);
+    @Operation(summary = "Listar clientes")
+    @GetMapping
+    public ResponseEntity<List<ClienteDTO>> listarTodos() {
+        List<ClienteDTO> clientes = clienteRepository.findAll()
+                .stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(clientes);
+    }
+
+    private ClienteDTO toDTO(Cliente cliente) {
+        return new ClienteDTO(
+                cliente.getCpf().getValue(),
+                cliente.getNome(),
+                cliente.getEmail()
+        );
     }
 }
