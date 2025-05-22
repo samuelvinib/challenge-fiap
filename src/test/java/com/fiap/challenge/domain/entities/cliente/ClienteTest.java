@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 public class ClienteTest {
 
     @Test
-    public void deveLancarExcecao_QuandoCpfInvalido() {
+    public void deveLancarExcecaoQuandoCpfInvalido() {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> new Cliente("12345678901", "Nome Teste", "teste@email.com"));
     }
