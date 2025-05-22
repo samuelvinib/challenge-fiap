@@ -18,8 +18,8 @@ public class ClientRepositoryDatabase {
         return clientRepository.findAll();
     }
 
-    public void save(Client client) {
-        clientRepository.save(client);
+    public Client save(Client client) {
+        return clientRepository.save(client);
     }
 
     public void delete(Client client) {
