@@ -1,6 +1,6 @@
-package com.fiap.challenge.adapters.out.persistence.client;
+package com.fiap.challenge.client.adapters.out.persistence;
 
-import com.fiap.challenge.domain.entities.Cliente;
+import com.fiap.challenge.client.domain.entities.Cliente;
 import jakarta.persistence.*;
 import lombok.Getter;
 

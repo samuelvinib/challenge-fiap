@@ -1,8 +1,8 @@
-package com.fiap.challenge.adapters.in.http.client;
+package com.fiap.challenge.client.adapters.in.http;
 
-import com.fiap.challenge.adapters.in.http.client.dto.ClientDTO;
-import com.fiap.challenge.domain.entities.Cliente;
-import com.fiap.challenge.domain.port.ClientRepository;
+import com.fiap.challenge.client.adapters.in.http.dto.ClientDTO;
+import com.fiap.challenge.client.domain.entities.Cliente;
+import com.fiap.challenge.client.domain.port.ClientRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;

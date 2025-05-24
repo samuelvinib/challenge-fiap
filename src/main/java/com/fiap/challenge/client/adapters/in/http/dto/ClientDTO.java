@@ -1,4 +1,4 @@
-package com.fiap.challenge.adapters.in.http.client.dto;
+package com.fiap.challenge.client.adapters.in.http.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.fiap.challenge.domain.entities;
+package com.fiap.challenge.client.domain.entities;
 
 import java.util.Objects;
 
