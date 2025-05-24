@@ -2,7 +2,9 @@ package com.fiap.challenge.cliente.adapters.out.persistence;
 
 import com.fiap.challenge.cliente.domain.entities.Cliente;
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "clientes")
 public class ClienteEntity {
@@ -26,22 +28,6 @@ public class ClienteEntity {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public Cliente toDomain() {
