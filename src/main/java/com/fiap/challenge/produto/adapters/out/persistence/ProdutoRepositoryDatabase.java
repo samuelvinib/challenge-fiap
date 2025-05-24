@@ -3,15 +3,17 @@ package com.fiap.challenge.produto.adapters.out.persistence;
 import com.fiap.challenge.produto.domain.entities.Produto;
 import com.fiap.challenge.produto.domain.entities.Categoria;
 import com.fiap.challenge.produto.domain.port.ProdutoRepository;
+// Remova o @Qualifier se não houver outra implementação de ProdutoRepository
+// import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Repository("produtoRepositoryDatabase") // Adicionando um qualificador se necessário
+@Repository // Se esta for a única implementação, @Qualifier não é estritamente necessário no construtor que a injeta.
+// Mas pode ser útil se você planeja ter múltiplas implementações (ex: in-memory para testes).
 public class ProdutoRepositoryDatabase implements ProdutoRepository {
 
     private final ProdutoJpaRepository jpaRepository;
@@ -45,10 +47,9 @@ public class ProdutoRepositoryDatabase implements ProdutoRepository {
     @Override
     @Transactional
     public void deleteById(Long id) {
-        if (!jpaRepository.existsById(id)) {
-            // Considerar lançar uma exceção mais específica ou retornar um booleano/Optional
-            throw new IllegalArgumentException("Produto com ID " + id + " não encontrado para exclusão.");
-        }
+        // A lógica de verificar se existe antes de deletar foi movida para o UseCase (RemoverProdutoUseCase)
+        // para que o UseCase possa retornar um booleano indicando sucesso/falha.
+        // O JpaRepository.deleteById não lança exceção se o ID não for encontrado por padrão.
         jpaRepository.deleteById(id);
     }
 
@@ -58,20 +59,5 @@ public class ProdutoRepositoryDatabase implements ProdutoRepository {
         return jpaRepository.findByCategoria(categoria).stream()
                 .map(ProdutoEntity::toDomain)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    @Transactional
-    public Optional<Produto> update(Long id, Produto produtoToUpdate) {
-        return jpaRepository.findById(id)
-                .map(existingEntity -> {
-                    existingEntity.setNome(produtoToUpdate.getNome());
-                    existingEntity.setCategoria(produtoToUpdate.getCategoria());
-                    existingEntity.setPreco(produtoToUpdate.getPreco());
-                    existingEntity.setDescricao(produtoToUpdate.getDescricao());
-                    // existingEntity.setImagemUrl(produtoToUpdate.getImagemUrl()); // Futura implementação
-                    ProdutoEntity updatedEntity = jpaRepository.save(existingEntity);
-                    return updatedEntity.toDomain();
-                });
     }
 }
