@@ -1,11 +1,11 @@
-package com.fiap.challenge.cliente.domain.port;
+package com.fiap.challenge.domain.port;
 
-import com.fiap.challenge.cliente.domain.entities.Cliente;
+import com.fiap.challenge.domain.entities.Cliente;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ClienteRepository {
+public interface ClientRepository {
     Cliente save(Cliente cliente);
     Optional<Cliente> findById(Long id);
     List<Cliente> findAll();

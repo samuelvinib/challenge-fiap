@@ -1,4 +1,4 @@
-package com.fiap.challenge.cliente.domain.entities;
+package com.fiap.challenge.domain.entities;
 
 public class Cliente {
     private Cpf cpf;
