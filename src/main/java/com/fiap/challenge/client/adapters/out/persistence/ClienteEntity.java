@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @Entity
 @Table(name = "clientes")
-public class ClientEntity {
+public class ClienteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +22,9 @@ public class ClientEntity {
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
-    public ClientEntity() {}
+    public ClienteEntity() {}
 
-    public ClientEntity(String cpf, String nome, String email) {
+    public ClienteEntity(String cpf, String nome, String email) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
@@ -34,8 +34,8 @@ public class ClientEntity {
         return new Cliente(this.cpf, this.nome, this.email); // cpf aqui será encapsulado no VO Cpf
     }
 
-    public static ClientEntity fromDomain(Cliente cliente) {
-        return new ClientEntity(
+    public static ClienteEntity fromDomain(Cliente cliente) {
+        return new ClienteEntity(
                 cliente.getCpf().getValue(), // pegar o valor do VO
                 cliente.getNome(),
                 cliente.getEmail()

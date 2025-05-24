@@ -5,7 +5,7 @@ import com.fiap.challenge.client.domain.entities.Cliente;
 import java.util.List;
 import java.util.Optional;
 
-public interface ClientRepository {
+public interface ClienteRepository {
     Cliente save(Cliente cliente);
     Optional<Cliente> findById(Long id);
     List<Cliente> findAll();
