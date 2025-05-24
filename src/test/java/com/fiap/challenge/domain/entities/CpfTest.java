@@ -1,6 +1,6 @@
 package com.fiap.challenge.domain.entities;
 
-import com.fiap.challenge.client.domain.entities.Cpf;
+import com.fiap.challenge.cliente.domain.entities.Cpf;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 

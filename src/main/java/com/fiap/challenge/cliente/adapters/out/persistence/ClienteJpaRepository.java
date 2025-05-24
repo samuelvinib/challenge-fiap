@@ -1,4 +1,4 @@
-package com.fiap.challenge.client.adapters.out.persistence;
+package com.fiap.challenge.cliente.adapters.out.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,6 +1,6 @@
-package com.fiap.challenge.client.domain.port;
+package com.fiap.challenge.cliente.domain.port;
 
-import com.fiap.challenge.client.domain.entities.Cliente;
+import com.fiap.challenge.cliente.domain.entities.Cliente;
 
 import java.util.List;
 import java.util.Optional;

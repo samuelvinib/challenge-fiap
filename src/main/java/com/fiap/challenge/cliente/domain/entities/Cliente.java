@@ -1,4 +1,4 @@
-package com.fiap.challenge.client.domain.entities;
+package com.fiap.challenge.cliente.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;

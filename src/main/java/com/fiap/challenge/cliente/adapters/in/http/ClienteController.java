@@ -1,8 +1,8 @@
-package com.fiap.challenge.client.adapters.in.http;
+package com.fiap.challenge.cliente.adapters.in.http;
 
-import com.fiap.challenge.client.adapters.in.http.dto.ClienteDTO;
-import com.fiap.challenge.client.domain.entities.Cliente;
-import com.fiap.challenge.client.domain.port.ClienteRepository;
+import com.fiap.challenge.cliente.adapters.in.http.dto.ClienteDTO;
+import com.fiap.challenge.cliente.domain.entities.Cliente;
+import com.fiap.challenge.cliente.domain.port.ClienteRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/clients")
+@RequestMapping("/cliente")
 @Tag(name = "Cliente Controller", description = "Operações relacionadas a clientes")
 public class ClienteController {
 
