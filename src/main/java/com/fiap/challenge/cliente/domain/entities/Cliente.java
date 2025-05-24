@@ -1,10 +1,5 @@
 package com.fiap.challenge.cliente.domain.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter
-@Getter
 public class Cliente {
     private Cpf cpf;
     private String nome;
@@ -16,4 +11,27 @@ public class Cliente {
         this.email = email;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Cpf getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(Cpf cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

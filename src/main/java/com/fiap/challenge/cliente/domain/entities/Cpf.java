@@ -1,10 +1,7 @@
 package com.fiap.challenge.cliente.domain.entities;
 
-import lombok.Getter;
-
 import java.util.Objects;
 
-@Getter
 public class Cpf {
     private final String value;
 
@@ -13,6 +10,10 @@ public class Cpf {
             throw new IllegalArgumentException("CPF inválido");
         }
         this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     public static boolean isValid(String cpf) {
@@ -48,7 +49,8 @@ public class Cpf {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Cpf cpf)) return false;
+        if (!(o instanceof Cpf)) return false;
+        Cpf cpf = (Cpf) o;
         return value.equals(cpf.value);
     }
 
